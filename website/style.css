@@ -1,10 +1,57 @@
-/* Define the Laisha font */
 @font-face {
-    font-family: 'Laisha'; /* The name you will use to refer to this font */
-    src: url('fonts/Laisha.ttf') format('truetype'); /* Path to the font file */
-    font-weight: normal;
+    font-family: 'ClashDisplay-Extralight';
+    src: url('../Fonts/WEB/fonts/ClashDisplay-Extralight.woff2') format('woff2'),
+         url('../Fonts/WEB/fonts/ClashDisplay-Extralight.woff') format('woff'),
+         url('../Fonts/WEB/fonts/ClashDisplay-Extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-display: swap;
     font-style: normal;
 }
+  @font-face {
+    font-family: 'ClashDisplay-Light';
+    src: url('/Fonts/WEB/fonts/ClashDisplay-Extralight..woff2') format('woff2'),
+         url('/Fonts/WEB/fonts/ClashDisplay-Extralight..woff') format('woff'),
+         url('/Fonts/WEB/fonts/ClashDisplay-Extralight..ttf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'ClashDisplay-Regular';
+    src: url('../fonts/ClashDisplay-Regular.woff2') format('woff2'),
+         url('../fonts/ClashDisplay-Regular.woff') format('woff'),
+         url('../fonts/ClashDisplay-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'ClashDisplay-Medium';
+    src: url('../fonts/ClashDisplay-Medium.woff2') format('woff2'),
+         url('../fonts/ClashDisplay-Medium.woff') format('woff'),
+         url('../fonts/ClashDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'ClashDisplay-Semibold';
+    src: url('../fonts/ClashDisplay-Semibold.woff2') format('woff2'),
+         url('../fonts/ClashDisplay-Semibold.woff') format('woff'),
+         url('../fonts/ClashDisplay-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'ClashDisplay-Bold';
+    src: url('../fonts/ClashDisplay-Bold.woff2') format('woff2'),
+         url('../fonts/ClashDisplay-Bold.woff') format('woff'),
+         url('../fonts/ClashDisplay-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+  }
 
 /* Preloader styles */
 #preloader {
@@ -23,7 +70,7 @@
 
 /* Preloader Text Styling */
 #preloader h1 {
-    font-family: 'Laisha', sans-serif;
+    font-family: 'ClashDisplay-Extralight', sans-serif;
     font-size: 6em; /* Size of the preloader text */
     color: #ffffff;
     text-transform: uppercase;
@@ -33,7 +80,7 @@
 
 /* Main name */
 #main-name {
-    font-family: 'Laisha', sans-serif;
+    font-family: 'ClashDisplay-Extralight', sans-serif;
     font-size: 3rem;
     color: #fff;
     position: absolute;
@@ -47,7 +94,7 @@
 
 /* General styles */
 body {
-    font-family: 'Laisha', sans-serif;
+    font-family: 'ClashDisplay-Extralight', sans-serif;
     background-color: #121212;
     color: #ddd;
     margin: 0;
