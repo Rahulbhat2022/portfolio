@@ -17,29 +17,20 @@ document.addEventListener("DOMContentLoaded", function () {
             document.body.style.overflow = 'auto';
         }, 1300);
     });
-
+   
     // --- Projects Section Animation ---
-    const projectSection = document.getElementById("projects");
     const projectBars = document.querySelectorAll(".project-bar");
-    const expandingDot = document.querySelector(".expanding-dot");
 
-    // Create an IntersectionObserver to watch the projects section
-    const projectObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Expand the dot by adding the "expand" class
-                if (expandingDot) {
-                    expandingDot.classList.add("expand");
+    if (projectBars.length > 0) {
+        const projectObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.dataset.width;
+                    observer.unobserve(entry.target); // Stop observing this bar after animating
                 }
-                // Animate each project bar by setting its width from its data-width attribute
-                projectBars.forEach(bar => {
-                    bar.style.width = bar.getAttribute('data-width');
-                });
-                // Unobserve the section so the animation fires only once
-                observer.unobserve(projectSection);
-            }
-        });
-    }, { threshold: 0.3 }); // Adjust threshold as needed
+            });
+        }, { threshold: 0.3 });
 
-    projectObserver.observe(projectSection);
+        projectBars.forEach(bar => projectObserver.observe(bar));
+    }
 });

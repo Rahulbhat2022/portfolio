@@ -1,69 +1,33 @@
 @font-face {
-    font-family: 'ClashDisplay-Extralight';
-    src: url('../Fonts/WEB/fonts/ClashDisplay-Extralight.woff2') format('woff2'),
-         url('../Fonts/WEB/fonts/ClashDisplay-Extralight.woff') format('woff'),
-         url('../Fonts/WEB/fonts/ClashDisplay-Extralight.ttf') format('truetype');
+    font-family: 'calibri';
+    src: url('fonts/calibril.ttf') format('truetype');
     font-weight: 200;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'ClashDisplay-Light';
-    src: url('/Fonts/WEB/fonts/ClashDisplay-Extralight..woff2') format('woff2'),
-         url('/Fonts/WEB/fonts/ClashDisplay-Extralight..woff') format('woff'),
-         url('/Fonts/WEB/fonts/ClashDisplay-Extralight..ttf') format('truetype');
-    font-weight: 300;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'ClashDisplay-Regular';
-    src: url('../fonts/ClashDisplay-Regular.woff2') format('woff2'),
-         url('../fonts/ClashDisplay-Regular.woff') format('woff'),
-         url('../fonts/ClashDisplay-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'ClashDisplay-Medium';
-    src: url('../fonts/ClashDisplay-Medium.woff2') format('woff2'),
-         url('../fonts/ClashDisplay-Medium.woff') format('woff'),
-         url('../fonts/ClashDisplay-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'ClashDisplay-Semibold';
-    src: url('../fonts/ClashDisplay-Semibold.woff2') format('woff2'),
-         url('../fonts/ClashDisplay-Semibold.woff') format('woff'),
-         url('../fonts/ClashDisplay-Semibold.ttf') format('truetype');
-    font-weight: 600;
-    font-display: swap;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'ClashDisplay-Bold';
-    src: url('../fonts/ClashDisplay-Bold.woff2') format('woff2'),
-         url('../fonts/ClashDisplay-Bold.woff') format('woff'),
-         url('../fonts/ClashDisplay-Bold.ttf') format('truetype');
-    font-weight: 700;
+    font-family: 'abril';
+    src: url('fonts/abril-display-7.ttf') format('truetype');
+    font-weight: 200;
     font-display: swap;
     font-style: normal;
 }
 
-html {
-    min-height: 100%;
-}
-body {
-    height: calc(100vh - 8em);
-    padding: 4em;
-    color: rgba(255, 255, 255, 0.85);
-    font-family: 'ClashDisplay-Semibold', sans-serif;
-    background: linear-gradient(135deg, #f0f0f0, #ffffff);
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0; /* Removes any default margins */
+    padding: 0;
+    color: #272929;
+    font-family: 'calibri', sans-serif;
+    background: #FAFAFA;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden; /* Prevents any horizontal scrolling */
+    scroll-behavior: smooth;
 }
+
+
 
 /* Animation */
 .anim-typewriter {
@@ -131,7 +95,7 @@ body {
 
 #preloader-content button {
     position: absolute;
-    font-family: 'ClashDisplay-Extralight', sans-serif; /* Corrected font-family */
+    font-family: 'abril', sans-serif; /* Corrected font-family */
     bottom: -140px; /* Adjust this value to move the button higher or lower */
     left: 50%;
     transform: translateX(-50%);
@@ -173,57 +137,42 @@ body {
 
 /* Header */
 header {
-    background-color: #333;
+    background-color: #FAFAFA;
     color: #fff;
-    padding: 20px 0;
+    padding:  0px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Navigation bar */
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #444;
-    padding: 15px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 20px;
-    font-weight: 500;
-    transition: color 0.3s ease-in-out;
-}
-nav a:hover {
-    color: #ff6347;
-}
 
-/* Container */
+
 .container {
-    width: 100%;
-    max-width: 800px; /* Scaled to fit smaller screens */
-    margin: 50px auto; /* Centered horizontally and spaced vertically */
+    width: 90vw; /* 90% of the viewport width */
+    max-width: 1900px; /* Ensures it doesn't stretch too much on ultra-wide screens */
+    margin: 50px auto;
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 /* Sections */
 .section {
     margin-bottom: 40px;
-    padding: 20px;
+    padding: 30px;
+    left: 0px;
     text-align: center; /* Center content */
-    background-color: #f9f9f9;
+    background-color: #fafafa;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .section h2 {
-    border-bottom: 2px solid #5cb85c;
+    border-bottom: 2px solid #52343A;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    color: #333;
+    color: #52343a;
+    font-family: 'abril', sans-serif; /* Corrected font-family */
     font-weight: 600;
 }
 .section p, .section ul {
@@ -339,6 +288,8 @@ a:hover {
 }
 
 
+
+
 .y-axis::after {
     content: "";
     position: absolute;
@@ -363,3 +314,13 @@ a:hover {
     border-bottom: 5px solid transparent;
     border-left: 10px solid #333;
 }
+
+.logo {
+    width: 150px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure proper spacing */
+    margin: 0px auto; /* Centering */
+}
+
+
+
