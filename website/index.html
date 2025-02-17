@@ -10,7 +10,7 @@
 
     <!-- Header -->
     <header>
-        <h1>Rahul Bhat</h1>
+        <h1>RB</h1>
     </header>
 
     <!-- Navigation bar -->
@@ -32,18 +32,28 @@
             </p>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="section">
             <h2>Projects</h2>
-            <p>
-                Here are some of the projects I've worked on:
-            </p>
-            <ul>
-                <li><strong>Project 1:</strong> A portfolio website built with HTML, CSS, and JavaScript.</li>
-                <li><strong>Project 2:</strong> A to-do list application with a dark theme using React.</li>
-                <li><strong>Project 3:</strong> A weather app that fetches real-time data from an API using vanilla JavaScript.</li>
-            </ul>
+            <div class="graph-container">
+                <!-- Y-Axis -->
+                <div class="y-axis"></div>
+                <!-- X-Axis -->
+                <div class="x-axis"></div>
+                <!-- Project Bars -->
+                <div class="project-bars">
+                    <div class="project-bar" data-width="90%" style="background-color: #ff5733;">
+                        <span>Portfolio Website</span>
+                    </div>
+                    <div class="project-bar" data-width="75%" style="background-color: #33aaff;">
+                        <span>To-Do List App</span>
+                    </div>
+                    <div class="project-bar" data-width="60%" style="background-color: #5cb85c;">
+                        <span>Weather App</span>
+                    </div>
+                </div>
+            </div>
         </section>
+
 
         <!-- Contact Section -->
         <section id="contact" class="section">
@@ -58,7 +68,7 @@
     <!-- White Circle Clipping -->
     <div id="circle-clip">
         <div id="preloader-content">
-            <p class="line-1 anim-typewriter">Hi im Rahul Bhat</p>
+            <p class="line-1 anim-typewriter">Hi I'm Rahul Bhat</p>
             <button id="loadButton">Click Me</button>
         </div>
     </div>
@@ -70,26 +80,46 @@
 
     <!-- JavaScript -->
     <script>
-        document.getElementById('loadButton').addEventListener('click', () => {
-            const preloader = document.getElementById('preloader');
-            const circleClip = document.getElementById('circle-clip');
-            const preloaderContent = document.getElementById('preloader-content');
-            
-            // Apply the sweep-up animation
-            preloader.classList.add('sweep-up');
+        document.addEventListener("DOMContentLoaded", function () {
+            // Preloader Logic
+            document.getElementById('loadButton').addEventListener('click', () => {
+                const preloader = document.getElementById('preloader');
+                const circleClip = document.getElementById('circle-clip');
+                const preloaderContent = document.getElementById('preloader-content');
+                
+                // Apply the sweep-up animation
+                preloader.classList.add('sweep-up');
 
-            // Fade out the preloader content
-            preloaderContent.style.opacity = '0';
-            circleClip.style.opacity = '0';
+                // Fade out the preloader content
+                preloaderContent.style.opacity = '0';
+                circleClip.style.opacity = '0';
 
-            // After 2 seconds, reveal the main content
-            setTimeout(() => {
-                preloader.style.display = 'none'; // Hide preloader
-                circleClip.style.display = 'none'; // Hide circle clipping
-                document.body.style.overflow = 'auto'; // Enable scrolling
-            }, 1300); // 1.3 second delay for smooth transition
+                // After 1.3 seconds, reveal the main content
+                setTimeout(() => {
+                    preloader.style.display = 'none'; // Hide preloader
+                    circleClip.style.display = 'none'; // Hide circle clipping
+                    document.body.style.overflow = 'auto'; // Enable scrolling
+                }, 1300);
+            });
+
+            // Project Bar Animation on Scroll
+            const projectBars = document.querySelectorAll(".project-bar");
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.dataset.width;
+                        entry.target.classList.add("animate");
+                        observer.unobserve(entry.target); // Stop observing after animation
+                    }
+                });
+            }, { threshold: 0.3 }); // Trigger when 30% of the section is visible
+
+            projectBars.forEach((bar) => {
+                observer.observe(bar);
+            });
         });
     </script>
-    
+
 </body>
 </html>

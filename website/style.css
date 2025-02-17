@@ -268,7 +268,98 @@ a:hover {
     text-decoration: underline;
     color: #ff6347;
 }
+.project-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.project-bar {
+    position: relative;
+    width: 0%; /* Start at 0% */
+    height: 50px; /* Bar height */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    overflow: hidden;
+    transition: width 2s ease-in-out;
+}
+
+.project-bar span {
+    position: relative;
+    z-index: 2;
+}
+.project-bar:hover {
+    filter: brightness(1.2); /* Slightly brighter */
+    transform: scale(1.05); /* Scale up */
+}
 
 
+/* Animation to fill from left to right */
+@keyframes fillBar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--width);
+    }
+}
+
+/* X and Y Axes Container */
+.graph-container {
+    position: relative;  /* So axes & bars are absolutely positioned inside */
+    width: 100%;
+    min-height: 300px;   /* Adjust as needed */
+    margin: 0 auto;
+}
+
+/* Y-Axis */
+.y-axis {
+    position: absolute;
+    top: 0px;
+    left: 15px;  /* Some spacing from left */
+    width: 2px;
+    bottom: 70px; /* So it doesn't go under the x-axis */
+    background-color: #333;
+}
+
+/* X-Axis */
+.x-axis {
+    position: absolute;
+    left: 15px;  /* Align with Y-axis start */
+    right: 20px; /* Some spacing from right edge */
+    bottom: 70px;
+    height: 2px;
+    background-color: #333;
+}
 
 
+.y-axis::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #333;
+}
+
+
+.x-axis::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    bottom: -5px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid #333;
+}
