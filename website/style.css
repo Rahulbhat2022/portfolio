@@ -170,7 +170,7 @@ header {
 .section h2 {
     border-bottom: 2px solid #52343A;
     padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 20px;  
     color: #52343a;
     font-family: 'abril', sans-serif; /* Corrected font-family */
     font-weight: 600;
@@ -226,30 +226,50 @@ a:hover {
 
 .project-bar {
     position: relative;
+    font-family: 'abril', sans-serif;
     width: 0%; /* Start at 0% */
-    height: 50px; /* Bar height */
+    height: 50px; /* Default bar height */
     border-radius: 8px;
     display: flex;
     align-items: center;
     padding-left: 15px;
-    color: white;
+    color: #fafafa;
     font-size: 18px;
     font-weight: bold;
     overflow: hidden;
-    transition: width 2s ease-in-out;
+    transition: width 2s ease-in-out, height 0.3s ease;
+    cursor: pointer;
+}
+.project-bar img {
+    width: 100%;
+      /* Ensures the image takes full width of the container */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: contain; /* Ensures the whole image is visible */
 }
 
-.project-bar span {
-    position: relative;
-    z-index: 2;
-}
+/* Expand the bar downward on hover */
 .project-bar:hover {
     filter: brightness(1.2); /* Slightly brighter */
-    transform: scale(1.05); /* Scale up */
+    height: 420px; /* Expanded height */
 }
 
+/* Hidden content inside the bar */
+.project-bar .extra-content {
+    font-family: "calibri", sans-serif;
+    padding-left: 20px;
+    font-size: 14px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
 
-/* Animation to fill from left to right */
+.project-bar:hover .extra-content {
+    max-height: 70px; /* Adjust as needed */
+    opacity: 1;
+}
+
+/* Fill animation */
 @keyframes fillBar {
     from {
         width: 0%;
@@ -258,6 +278,12 @@ a:hover {
         width: var(--width);
     }
 }
+
+/* Apply animation when JavaScript runs */
+.project-bar.animated {
+    animation: fillBar 2s ease-in-out forwards;
+}
+
 
 /* X and Y Axes Container */
 .graph-container {
