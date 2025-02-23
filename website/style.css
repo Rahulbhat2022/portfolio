@@ -49,7 +49,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: #52343A;
     z-index: 1000;
     transition: opacity 0.5s ease-in-out;
 }
@@ -61,7 +61,7 @@ html, body {
     left: 50%;
     width: 800px;
     height: 800px;
-    background-color: #fff;
+    background-color: #fafafa;
     border-radius: 50%;
     clip-path: circle(400px at center);
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
@@ -206,7 +206,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     background-color: #333;
-    color: #fff;
+    color: #Fafafa;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
 }
 a {
@@ -231,43 +231,48 @@ a:hover {
     height: 50px; /* Default bar height */
     border-radius: 8px;
     display: flex;
-    align-items: center;
-    padding-left: 15px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px 15px;
     color: #fafafa;
     font-size: 18px;
     font-weight: bold;
-    overflow: hidden;
+    overflow: visible; /* Change this if needed */
     transition: width 2s ease-in-out, height 0.3s ease;
+    object-fit: contain;
     cursor: pointer;
 }
+
 .project-bar img {
-    width: 100%;
-      /* Ensures the image takes full width of the container */
-    height: auto; /* Maintains aspect ratio */
-    object-fit: contain; /* Ensures the whole image is visible */
+    width: 45%; /* Makes sure image fills container */
+    height: auto; /* Keeps aspect ratio */
+    object-fit: contain; /* Ensures full image is visible */
+    display: block; /* Avoids inline spacing issues */
+    margin-top: 5px; /* Adds spacing */
 }
 
-/* Expand the bar downward on hover */
+
 .project-bar:hover {
-    filter: brightness(1.2); /* Slightly brighter */
+    filter: brightness(1.2);
     height: 420px; /* Expanded height */
+    overflow: visible; /* Ensure content is not clipped */
 }
 
-/* Hidden content inside the bar */
 .project-bar .extra-content {
     font-family: "calibri", sans-serif;
-    padding-left: 20px;
-    font-size: 14px;
+    font-size: 13px;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+    padding-left: 40px;
     transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
 .project-bar:hover .extra-content {
-    max-height: 70px; /* Adjust as needed */
+    max-height: 300px; /* Increase if needed */
     opacity: 1;
 }
+
 
 /* Fill animation */
 @keyframes fillBar {
@@ -285,6 +290,25 @@ a:hover {
 }
 
 
+/* Image container for side-by-side layout */
+.image-container {
+    display: flex; /* Enable horizontal layout */
+    gap: 10px; /* Add spacing between images */
+    justify-content: center; /* Center images */
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Ensure images fit correctly */
+.image-container img {
+    width: 35%; /* Each image takes about half of the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+    display: block;
+    border-radius: 5px;
+}
+
 /* X and Y Axes Container */
 .graph-container {
     position: relative;  /* So axes & bars are absolutely positioned inside */
@@ -299,7 +323,7 @@ a:hover {
     top: 0px;
     left: 15px;  /* Some spacing from left */
     width: 2px;
-    bottom: 70px; /* So it doesn't go under the x-axis */
+    bottom: 40px; /* So it doesn't go under the x-axis */
     background-color: #333;
 }
 
@@ -308,7 +332,7 @@ a:hover {
     position: absolute;
     left: 15px;  /* Align with Y-axis start */
     right: 20px; /* Some spacing from right edge */
-    bottom: 70px;
+    bottom: 40px;
     height: 2px;
     background-color: #333;
 }
